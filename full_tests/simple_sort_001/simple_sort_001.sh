@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mkdir data
-rm MAGLAND_SIM001b/raw.mda
+rm data/raw.mda
 
 ./synthesize_raw.sh
 
