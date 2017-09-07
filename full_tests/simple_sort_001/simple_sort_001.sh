@@ -3,9 +3,11 @@
 mkdir data
 rm data/raw.mda
 
+set -e
+
 ./synthesize_raw.sh
 
-mp-run-process mountainsort.bandpass_filter --timeseries=data/raw.mda --timeseries_out=data/filt.mda --freq_max=6000 --freq_min=300 --freq_wid=1000 --quantization_unit=0 --samplerate=30000
+mp-run-process mountainsort.bandpass_filter --timeseries=data/raw.mda --timeseries_out=data/filt.mda --freq_max=6000 --freq_min=300 --freq_wid=1000 --quantization_unit=0 --samplerate=30000 --_max_ram_gb=2
 
 mp-run-process mountainsort.whiten --timeseries=data/filt.mda --timeseries_out=data/pre.mda --quantization_unit=0
 
